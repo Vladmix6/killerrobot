@@ -8,16 +8,10 @@ import robocode.ScannedRobotEvent;
  */
 public class Killer extends AdvancedRobot {
 
-	private static int PERTO = 50;
-	private static int LONGE = 200;
 	ScannedRobotEvent alvoAnterior = null;
-	int tirosPerdidos = 0;
-	int tirosSofridos = 0;
-	int tirosNoAlvo = 0;
-	boolean sabeOndeAtirar = false;
-	double previousEnergy = 100;
-	int direcao = 1;
-	int gunDirection = 1;
+	public double previousEnergy = 100;
+	public int direcao = 1;
+	public int gunDirection = 1;
 
 	public void run() {
 		setTurnGunRight(99999);
@@ -25,8 +19,6 @@ public class Killer extends AdvancedRobot {
 
 	public void onScannedRobot(ScannedRobotEvent e) {
 		// Fire directly at target
-		turnGunRight(e.getBearing()+getHeading());
-		smartFire(e);
 		if (alvoAnterior == null)
 			alvoAnterior = e;
 		// Manter 90 graus em relação ao alvo
@@ -38,14 +30,15 @@ public class Killer extends AdvancedRobot {
 		gunDirection = -gunDirection;
 		setTurnGunRight(99999 * gunDirection);
 		// Track the energy level
+		smartFire(e);
 		alvoAnterior = e;
 		previousEnergy = e.getEnergy();
 	}
 
 	public void smartFire(ScannedRobotEvent e) {
-		if (e.getDistance() > LONGE || getEnergy() < 15) {
+		if (e.getDistance() > 200 || getEnergy() < 15) {
 			fire(1);
-		} else if (e.getDistance() > PERTO) {
+		} else if (e.getDistance() > 50) {
 			fire(2);
 		} else {
 			fire(3);
