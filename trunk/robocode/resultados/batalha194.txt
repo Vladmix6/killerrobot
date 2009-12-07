@@ -1,0 +1,4 @@
+Results for 100 rounds
+Robot Name	    Total Score    	Survival	Surv Bonus	Bullet Dmg	Bullet Bonus	Ram Dmg * 2	Ram Bonus	 1sts 	 2nds 	 3rds 	
+1st: ufcg.Killer194	15655 (70%)	4250	850	9010	1545	0	0	85	15	0	
+2nd: sample.TrackFire	6750 (30%)	750	150	5511	339	0	0	15	85	0	
