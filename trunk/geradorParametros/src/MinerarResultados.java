@@ -37,7 +37,7 @@ public class MinerarResultados {
 				String lido = in.readLine();
 				if (lido.contains("ufcg.Killer")) {
 					String[] split = lido.split("\t");
-					saida.add(Integer.parseInt(split[2]));
+					saida.add(Integer.parseInt(split[8]));
 				}
 			}
 			in.close();
